@@ -1,8 +1,8 @@
 {
   "name": "autoresearch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Junjie Zhou"
   },
-  "description": "Research primitives with a research-mode entry that recommends the next skill or short flow."
+  "description": "Minimal research skills with a research-mode entry that routes and executes useful operations through task completion."
 }

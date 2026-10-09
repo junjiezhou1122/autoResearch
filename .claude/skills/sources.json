@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "copied_on": "2026-10-09",
+  "skills": [
+    {
+      "name": "create-adapter",
+      "path": ".claude/skills/create-adapter",
+      "repository": "https://github.com/harbor-framework/adapters.git",
+      "commit": "68226cfa22d996a925c3969966a6aaab64249d46",
+      "subpath": "skills/create-adapter",
+      "license": "Apache-2.0",
+      "sha256": {
+        "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "SKILL.md": "e3adc459f55864a49c63db8a5daa548fa3c4ef851a338a123e0215de93889195"
+      }
+    },
+    {
+      "name": "harbor-adapter-creator",
+      "path": ".claude/skills/harbor-adapter-creator",
+      "repository": "https://github.com/harbor-framework/skills.git",
+      "commit": "b8cdcfb534b1aff65c7699eab4673530b1b4120a",
+      "subpath": "skills/harbor-adapter-creator",
+      "license": "Apache-2.0",
+      "sha256": {
+        "LICENSE": "c5836ef11e17c471da185194c9a42a407cfe89643aa2b84aa7ac3a6fb6a2daa8",
+        "SKILL.md": "35873057e257b04ace8e9a318f462013e2b2e4c1322776bb566b09cb946e1efd",
+        "references/adapter-anatomy.md": "a9b97c08fdd4c18a92dd433a486f5f893d08f50c0fbcd1ca333dfd6be679b48f"
+      }
+    }
+  ]
+}

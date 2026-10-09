@@ -2,6 +2,8 @@
 
 本项目使用六个 benchmark，分别测试科研 idea 生成、未来方向预测、方案比较和研究执行。先选择评测目标，再按对应文档接入 agent。
 
+后续新增 benchmark 按 [Harbor 接入流程](benchmark-onboarding.md)执行，交付固定版本的数据、验证证据和一键运行入口。现有本地入口的准备状态见本页末尾，Harbor 转换状态另按接入证据记录。
+
 ## 有哪些 benchmark
 
 | Benchmark | 测什么 | Agent 产出 | 数据范围 | 操作说明 |

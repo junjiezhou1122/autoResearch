@@ -1,6 +1,6 @@
 ---
 name: research-mode
-description: Ask which research primitive or flow fits the current research situation. A router over the research primitive skills.
+description: Route the current research task to useful research skills and execute them through to the requested output.
 disable-model-invocation: true
 ---
 
@@ -89,6 +89,10 @@ Candidate idea → test:
 
 ## Routing rule
 
-Recommend the smallest next skill or short flow that fits the current situation.
+Choose the smallest useful skill or short flow for the current research state.
 
-Do not perform the routed skill's work here.
+Load each selected skill through the Skill tool and follow its instructions. Do not substitute this navigation map for the skill's work.
+
+Use the result as intermediate work, reassess the research state, and continue with useful operations until you can deliver the original task's requested output. Do not ask for confirmation between operations the task already authorizes.
+
+Let the research state determine which skills to use and when to stop. Preserve the task's evidence restrictions and final output format.

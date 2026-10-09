@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+*.secret.json
+.DS_Store
+
+# Local experiment outputs and working logs
+/results/
+/decisions.tsv
+/todo.md
+
+# Local client configuration and session capture
+/.claude/settings*.json
+/.claude/worktrees/
+/.codex/
+/.cursor/
+/.entire/
+/.factory/
+/.opencode/
+/.pi/

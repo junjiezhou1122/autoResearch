@@ -4,11 +4,13 @@
 
 插件名是 `autoresearch`，入口名是 `research-mode`。入口命令为 `/autoresearch:research-mode`，leaf 命令也使用 `autoresearch` 命名空间，避免与环境中已有的同名 skills 混淆。
 
-`.claude-plugin/plugin.json` 保存插件元数据。全部 16 个 skills 位于根目录的 `skills/`，由 Claude Code 自动发现。
+`.claude-plugin/plugin.json` 保存插件元数据。插件的 16 个 skills 位于根目录的 `skills/`，由 Claude Code 自动发现。
+
+`.claude/skills/` 另存 `create-adapter` 和 `harbor-adapter-creator` 两份项目技能，用于 benchmark 接入。来源与更新方式见 [Harbor 接入流程](benchmark-onboarding.md)。正式实验从独立工作目录启动，避免发现仓库的项目技能。
 
 ## 入口与 leaf skills
 
-`research-mode` 是一张导航地图。它根据当前研究情况推荐下一个 skill 或短 flow，推荐后停止。`disable-model-invocation: true` 让这个入口由用户显式调用。
+`research-mode` 根据当前研究状态选择最小有用 skill 或短 flow，通过 `Skill` 工具加载所选 leaf，再将结果作为中间工作继续完成原任务。操作顺序和停止时机由研究状态决定，不固定调用次数。`disable-model-invocation: true` 让入口由用户显式调用，不限制后续 leaf 的模型调用。
 
 15 个 leaf skills 各自保留一个认知变换的极简正文。它们的 `name` 和 `description` 用于发现，正文按需加载。
 
@@ -16,7 +18,7 @@
 
 仓库根目录的 `CLAUDE.md` 保存受控实验的 protocol，约束证据范围、联网权限、research state、预算和最终输出 schema。具体任务提供 evidence package、预算数值和 benchmark schema。
 
-Claude Code 不会因为加载 plugin 就自动加载其中的 `CLAUDE.md`。普通启动时，工作目录的 `CLAUDE.md` 可以被自动发现；下面的研究启动器关闭了这项自动加载，因此实验显式注入同一份 protocol。
+Claude Code 不会因为加载 plugin 就自动加载其中的 `CLAUDE.md`。普通启动时，工作目录的 `CLAUDE.md` 可以被自动发现；下面的研究启动器关闭了这项自动加载。历史 ResearchBench pilot 显式注入仓库 protocol。新的任务接入显式加载[通用研究说明](research-agent.md)，并保留任务自身的证据和输出限制，见[接入约定](agent-benchmark-contract.md)。
 
 ## 已有的干净研究环境
 
@@ -24,14 +26,14 @@ Claude Code 不会因为加载 plugin 就自动加载其中的 `CLAUDE.md`。普
 
 这个 profile 建立时只复制了模型连接设置，没有复制日常 hooks、plugins 或 skills。启动器使用正常运行模式，保留内置功能，也允许明确加载研究 skills、plugins 和后续 hooks，因此不用 `--safe-mode` 或 `--bare`。
 
-Baseline 启动时显式带入 protocol：
+历史 ResearchBench pilot 的 baseline 显式带入 protocol：
 
 ```bash
 claude-research \
   --append-system-prompt-file /Users/junjie/orca/projects/autoResearch/CLAUDE.md
 ```
 
-Primitive condition 额外加载本插件：
+该 pilot 的 primitive condition 额外加载本插件：
 
 ```bash
 claude-research \
