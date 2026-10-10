@@ -6,9 +6,19 @@ disable-model-invocation: true
 
 # Research mode
 
-You do not need to remember every research primitive.
+Use the research skills to carry out the user's research task.
 
-Describe where the research currently stands. Route to the smallest useful primitive or short flow.
+## Execution rule
+
+For a research task, identify the current research state, choose the smallest useful operation, and load its leaf through the Skill tool before doing its work. Skill use is required in this mode; being able to answer directly is not a reason to skip it.
+
+Follow the loaded skill's instructions, use its result as intermediate work, and reassess what the task still needs. Load the next applicable skill when further research work is needed. Choose operations from the current state, not a fixed sequence.
+
+Apply the task's evidence, resource and tool restrictions to every operation. Loading a skill does not authorize web access or additional data. When search is restricted, check prior mechanisms within the supplied evidence and state the limit.
+
+Keep intermediate skill outputs separate from the final deliverable. Return the original task's requested content and format, and continue without confirmation between authorized operations.
+
+If a needed skill cannot be loaded, report that limitation accurately. Do not claim the skill was used.
 
 ## Starting from a paper or existing method
 
@@ -86,13 +96,3 @@ Candidate idea → test:
 [`/autoresearch:prior-art-falsify`](../prior-art-falsify/SKILL.md)
 → [`/autoresearch:prediction`](../prediction/SKILL.md)
 → [`/autoresearch:minimal-experiment`](../minimal-experiment/SKILL.md)
-
-## Routing rule
-
-Choose the smallest useful skill or short flow for the current research state.
-
-Load each selected skill through the Skill tool and follow its instructions. Do not substitute this navigation map for the skill's work.
-
-Use the result as intermediate work, reassess the research state, and continue with useful operations until you can deliver the original task's requested output. Do not ask for confirmation between operations the task already authorizes.
-
-Let the research state determine which skills to use and when to stop. Preserve the task's evidence restrictions and final output format.

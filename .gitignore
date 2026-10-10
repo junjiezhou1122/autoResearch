@@ -5,10 +5,8 @@ __pycache__/
 *.secret.json
 .DS_Store
 
-# Local experiment outputs and working logs
-/results/
-/decisions.tsv
-/todo.md
+# Local experiment materials and working logs
+/experiments/
 
 # Local client configuration and session capture
 /.claude/settings*.json

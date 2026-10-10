@@ -108,6 +108,6 @@ entire disable
 
 ## 保持受控实验隔离
 
-不要为捕获实验会话而修改 runner 的工作目录、settings 或持久化选项。[`scripts/run_runtime_pilot.py`](../scripts/run_runtime_pilot.py) 的 `run_candidate` 在第 73 行开始，在临时非 Git 目录运行 `claude-research`。该 launcher 仅加载用户 settings，runner 使用 `--no-session-persistence`，不会加载本仓库的项目 hooks。直接调用 API 的 runners 也不经过客户端 hooks。
+不要为捕获实验会话而修改 runner 的工作目录、settings 或持久化选项。本地历史 runner `experiments/scripts/run_runtime_pilot.py` 在临时非 Git 目录运行 `claude-research`。该 launcher 仅加载用户 settings，runner 使用 `--no-session-persistence`，不会加载本仓库的项目 hooks。直接调用 API 的 runners 也不经过客户端 hooks。实验脚本不随 GitHub 仓库分发。
 
-继续以 `results/` 中的原始请求、输出、用量和评分文件作为实验记录。Entire 记录用于仓库开发追踪，不能代替实验产物，也不提供完整实验捕获。接入 Entire 不改变实验条件、允许的证据、工具预算或 primitive 调用规则。
+继续以 `experiments/results/` 中的原始请求、输出、用量和评分文件作为实验记录。Entire 记录用于仓库开发追踪，不能代替实验产物，也不提供完整实验捕获。接入 Entire 不改变实验条件、允许的证据、工具预算或 primitive 调用规则。

@@ -10,7 +10,7 @@
 
 ## 入口与 leaf skills
 
-`research-mode` 根据当前研究状态选择最小有用 skill 或短 flow，通过 `Skill` 工具加载所选 leaf，再将结果作为中间工作继续完成原任务。操作顺序和停止时机由研究状态决定，不固定调用次数。`disable-model-invocation: true` 让入口由用户显式调用，不限制后续 leaf 的模型调用。
+显式进入 `research-mode` 后，研究任务必须先通过 `Skill` 加载适用 leaf，再执行对应操作；能直接写答案不能作为跳过理由。agent 根据中间结果重新判断下一步，不固定技能序列或次数。所有操作仍受原任务的资源限制，search 仅在允许的证据范围内进行，中间结果不替代最终输出格式。`disable-model-invocation: true` 让入口由用户显式调用，不限制后续 leaf 的模型调用。
 
 15 个 leaf skills 各自保留一个认知变换的极简正文。它们的 `name` 和 `description` 用于发现，正文按需加载。
 
